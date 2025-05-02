@@ -10,10 +10,19 @@ function setup() {
 
   // 建立與視訊畫面相同大小的圖形
   overlayGraphics = createGraphics(capture.width, capture.height);
-  overlayGraphics.fill(255, 0, 0, 150); // 半透明紅色
-  overlayGraphics.textSize(32);
-  overlayGraphics.textAlign(CENTER, CENTER);
-  overlayGraphics.text('我是小熊', overlayGraphics.width / 2, overlayGraphics.height / 2);
+
+  // 設定 overlayGraphics 的背景為淺灰色，並繪製圓形圖案
+  overlayGraphics.background(200); // 淺灰色背景
+  let unitSize = 20; // 單位大小
+  let circleSize = 15; // 圓的大小
+  for (let x = 0; x < overlayGraphics.width; x += unitSize) {
+    for (let y = 0; y < overlayGraphics.height; y += unitSize) {
+      let colorValue = map(x + y, 0, overlayGraphics.width + overlayGraphics.height, 0, 255);
+      overlayGraphics.fill(colorValue, 100, 255 - colorValue, 150); // 設定圓的顏色
+      overlayGraphics.noStroke();
+      overlayGraphics.ellipse(x + unitSize / 2, y + unitSize / 2, circleSize, circleSize); // 繪製圓
+    }
+  }
 }
 
 function draw() {
