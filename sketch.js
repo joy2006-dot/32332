@@ -13,7 +13,7 @@ function setup() {
   overlayGraphics.fill(255, 0, 0, 150); // 半透明紅色
   overlayGraphics.textSize(32);
   overlayGraphics.textAlign(CENTER, CENTER);
-  overlayGraphics.text('Overlay Text', overlayGraphics.width / 2, overlayGraphics.height / 2);
+  overlayGraphics.text('我是小熊', overlayGraphics.width / 2, overlayGraphics.height / 2);
 }
 
 function draw() {
