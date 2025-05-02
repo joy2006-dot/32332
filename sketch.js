@@ -22,10 +22,19 @@ function draw() {
   for (let x = 0; x < overlayGraphics.width; x += unitSize) {
     for (let y = 0; y < overlayGraphics.height; y += unitSize) {
       // 擷取攝影機畫面的一部分作為圓圈的內容
+      overlayGraphics.fill(0); // 設定圓圈背景顏色（可選）
+      overlayGraphics.noStroke();
+      overlayGraphics.ellipse(
+        x + unitSize / 2,
+        y + unitSize / 2,
+        circleSize,
+        circleSize
+      ); // 繪製圓圈背景
+
       overlayGraphics.copy(
         capture,
         x, y, unitSize, unitSize, // 從攝影機畫面擷取的區域
-        x + (unitSize - circleSize) / 2, y + (unitSize - circleSize) / 2, circleSize, circleSize // 繪製到圓圈內
+        x, y, unitSize, unitSize // 繪製到 overlayGraphics 的對應區域
       );
     }
   }
@@ -51,6 +60,4 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight); // 當視窗大小改變時調整畫布
-}
-eight); // 當視窗大小改變時調整畫布
 }
