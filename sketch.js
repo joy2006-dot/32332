@@ -10,10 +10,12 @@ function setup() {
 
 function draw() {
   background('#ffe6a7'); // 每次繪製時重設背景
+  translate(width / 2, height / 2); // 將原點移到畫布中心
+  scale(-1, 1); // 水平翻轉影像
   image(
     capture,
-    (width - capture.width) / 2, // 將影像置中
-    (height - capture.height) / 2,
+    -capture.width / 2, // 調整影像位置
+    -capture.height / 2,
     capture.width,
     capture.height
   );
